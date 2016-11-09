@@ -17,11 +17,10 @@ public class pt_br {
     ArrayList<String> pt_br = new ArrayList<>();
 
     public List getpt_br() {
-        pt_br.add("1");
-        pt_br.add("2");
-        pt_br.add("3");
-        pt_br.add("4");
-        pt_br.add("5");
+        pt_br.add("LanguageData.xlsm");
+        pt_br.add("stringtable_cutscene_ru.xlsm");
+        pt_br.add("stringtable_ru.xlsm");
+        pt_br.add("symbolnostringtable_ru.xlsm");
         return pt_br;
 
     }

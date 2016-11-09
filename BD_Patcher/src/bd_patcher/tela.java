@@ -28,15 +28,11 @@ public class tela extends javax.swing.JFrame {
     String language = null;
     String disco = null;
     String versao = null;
-    
-    
-   
 
     public tela() {
         initComponents();
-        List minhalista_eng_us =  lista_us.geteng_us();
+        List minhalista_eng_us = lista_us.geteng_us();
         List minhalista_pt_bt = lista_pt.getpt_br();
-        JOptionPane.showMessageDialog(null,lista_us.getsize() + lista_pt.getsize());
     }
 
     /**
@@ -124,10 +120,10 @@ public class tela extends javax.swing.JFrame {
                 File file = new File(diretorio);
 
                 if (versao == "PT_BR") {
-                    if (!file.isDirectory()) {
+                    if (file.isDirectory()) {
                         for (int j = 0; j < lista_pt.getsize(); j++) {
                             try {
-                                String url2 = "http://mmobrazil.com/patcher_files/" + lista_pt.getLista(j);
+                                String url2 = "http://omegabd.000webhostapp.com/pt_br/" + lista_pt.getLista(j);
                                 URL url = new URL(url2);
                                 String path = lista_pt.getLista(j) + " Baixando...";
                                 download_progress.setText(path);
@@ -161,7 +157,7 @@ public class tela extends javax.swing.JFrame {
 
                         for (int k = 0; k < lista_us.getsize(); k++) {
                             try {
-                                String url2 = "http://mmobrazil.com/patcher_files/" + lista_us.getLista(k);
+                                String url2 = "http://omegabd.000webhostapp.com/eng_us/" + lista_us.getLista(k);
                                 URL url = new URL(url2);
                                 String path = lista_us.getLista(k) + " Baixando...";
                                 download_progress.setText(path);

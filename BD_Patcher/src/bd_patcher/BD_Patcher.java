@@ -33,7 +33,7 @@ public class BD_Patcher {
         jn.setLocationRelativeTo(null);
         jn.setVisible(true);
 
-        String url = ""; //repositorio para ler a versão do app
+        String url = "http://omegabd.000webhostapp.com/version.txt"; //repositorio para ler a versão do app
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");
@@ -55,7 +55,7 @@ public class BD_Patcher {
             System.out.println(caminho);
 
             try {
-                String url2 = "";// Novo patcher
+                String url2 = "http://omegabd.000webhostapp.com/BD_Patcher.jar";// Novo patcher
                 URL url3 = new URL(url2);
                 URLConnection conn = url3.openConnection();
                 InputStream in2 = conn.getInputStream();

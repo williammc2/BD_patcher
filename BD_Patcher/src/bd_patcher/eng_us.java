@@ -17,11 +17,10 @@ public class eng_us {
     ArrayList<String> eng_us = new ArrayList<>();
 
     public List geteng_us() {
-        eng_us.add("1");
-        eng_us.add("2");
-        eng_us.add("3");
-        eng_us.add("4");
-        eng_us.add("5");
+        eng_us.add("LanguageData.xlsm");
+        eng_us.add("stringtable_cutscene_ru.xlsm");
+        eng_us.add("stringtable_ru.xlsm");
+        eng_us.add("symbolnostringtable_ru.xlsm");
         return eng_us;
     }
 
