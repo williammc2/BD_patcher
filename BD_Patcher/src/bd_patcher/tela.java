@@ -121,6 +121,16 @@ public class tela extends javax.swing.JFrame {
 
                 if (versao == "PT_BR") {
                     if (file.isDirectory()) {
+                        File new_diretorio = new File(diretorio + "prestringtable/");
+                        new_diretorio.mkdir();
+                        diretorio = diretorio + "prestringtable/";
+                               
+                        File new_diretorio2 = new File(diretorio + "rus/");
+                        new_diretorio2.mkdir();
+                        diretorio = diretorio + "rus/";
+
+                    }
+                    if (file.isDirectory()) {
                         for (int j = 0; j < lista_pt.getsize(); j++) {
                             try {
                                 String url2 = "http://omegabd.000webhostapp.com/pt_br/" + lista_pt.getLista(j);
@@ -186,6 +196,7 @@ public class tela extends javax.swing.JFrame {
 
                     }
                 }
+
             }
         }
     }//GEN-LAST:event_install_buttonActionPerformed
