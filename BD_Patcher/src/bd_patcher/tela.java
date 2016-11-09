@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -20,14 +22,21 @@ import javax.swing.JOptionPane;
  */
 public class tela extends javax.swing.JFrame {
 
+    eng_us lista_us = new eng_us();
+    pt_br lista_pt = new pt_br();
     String diretorio = null;
     String language = null;
     String disco = null;
     String versao = null;
-    language_pt_br traducao_pt = new language_pt_br();
+    
+    
+   
 
     public tela() {
         initComponents();
+        List minhalista_eng_us =  lista_us.geteng_us();
+        List minhalista_pt_bt = lista_pt.getpt_br();
+        JOptionPane.showMessageDialog(null,lista_us.getsize() + lista_pt.getsize());
     }
 
     /**
@@ -114,18 +123,18 @@ public class tela extends javax.swing.JFrame {
             } else {
                 File file = new File(diretorio);
 
-                if (versao == "RUSSO") {
-                    if (file.isDirectory()) {
-                        for (int j = 0; j < size; j++) {
+                if (versao == "PT_BR") {
+                    if (!file.isDirectory()) {
+                        for (int j = 0; j < lista_pt.getsize(); j++) {
                             try {
-                                String url2 = "http://mmobrazil.com/patcher_files/" + russo.get(j);
+                                String url2 = "http://mmobrazil.com/patcher_files/" + lista_pt.getLista(j);
                                 URL url = new URL(url2);
-                                String path = pt_br.get(j) + " Baixando...";
+                                String path = lista_pt.getLista(j) + " Baixando...";
                                 download_progress.setText(path);
                                 download_progress.paintAll(download_progress.getGraphics());
                                 URLConnection conn = url.openConnection();
                                 InputStream in = conn.getInputStream();
-                                FileOutputStream out = new FileOutputStream(diretorio + russo.get(j));
+                                FileOutputStream out = new FileOutputStream(diretorio + lista_pt.getLista(j));
                                 byte[] b = new byte[1024];
                                 int count;
                                 while ((count = in.read(b)) >= 0) {
@@ -150,16 +159,16 @@ public class tela extends javax.swing.JFrame {
                 } else {
                     if (file.isDirectory()) {
 
-                        for (int k = 0; k < sizekor; k++) {
+                        for (int k = 0; k < lista_us.getsize(); k++) {
                             try {
-                                String url2 = "http://mmobrazil.com/patcher_files/" + koreano.get(k);
+                                String url2 = "http://mmobrazil.com/patcher_files/" + lista_us.getLista(k);
                                 URL url = new URL(url2);
-                                String path = koreano.get(k) + " Baixando...";
-                                download_tag.setText(path);
-                                download_tag.paintAll(download_tag.getGraphics());
+                                String path = lista_us.getLista(k) + " Baixando...";
+                                download_progress.setText(path);
+                                download_progress.paintAll(download_progress.getGraphics());
                                 URLConnection conn = url.openConnection();
                                 InputStream in = conn.getInputStream();
-                                FileOutputStream out = new FileOutputStream(diretorio + koreano.get(k));
+                                FileOutputStream out = new FileOutputStream(diretorio + lista_us.getLista(k));
                                 byte[] b = new byte[1024];
                                 int count;
                                 while ((count = in.read(b)) >= 0) {
