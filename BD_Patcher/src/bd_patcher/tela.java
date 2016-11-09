@@ -125,9 +125,9 @@ public class tela extends javax.swing.JFrame {
                         new_diretorio.mkdir();
                         diretorio = diretorio + "prestringtable/";
                                
-                        File new_diretorio2 = new File(diretorio + "rus/");
+                        File new_diretorio2 = new File(diretorio + "ru/");
                         new_diretorio2.mkdir();
-                        diretorio = diretorio + "rus/";
+                        diretorio = diretorio + "ru/";
 
                     }
                     if (file.isDirectory()) {
