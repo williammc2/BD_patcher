@@ -72,7 +72,7 @@ public class tela extends javax.swing.JFrame {
         getContentPane().add(install_button);
         install_button.setBounds(330, 150, 210, 40);
 
-        jLabel3.setForeground(new java.awt.Color(255, 0, 51));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Copyright | Desenvolvido por: William Mendes");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(10, 220, 260, 14);
