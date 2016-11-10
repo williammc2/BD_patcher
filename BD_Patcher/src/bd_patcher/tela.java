@@ -5,10 +5,13 @@
  */
 package bd_patcher;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
@@ -51,10 +54,14 @@ public class tela extends javax.swing.JFrame {
         combobox_language = new javax.swing.JComboBox<>();
         download_progress = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(846, 280));
+        setMinimumSize(new java.awt.Dimension(855, 280));
         getContentPane().setLayout(null);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bd_patcher/Img/BI_BlackDeserts_ENG.png"))); // NOI18N
@@ -102,7 +109,36 @@ public class tela extends javax.swing.JFrame {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(290, 210, 50, 14);
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Patch de Tradução PT_BR");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(20, 40, 520, 60);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bd_patcher/Img/omega_logo.png"))); // NOI18N
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(720, 0, 110, 90);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel6.setText("Omega Guild");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(720, 80, 120, 20);
+
+        jLabel7.setForeground(new java.awt.Color(255, 0, 51));
+        jLabel7.setText("Version :2.0");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(760, 220, 70, 14);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bd_patcher/Img/bd_wp.jpg"))); // NOI18N
+        jLabel1.setPreferredSize(new java.awt.Dimension(855, 243));
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, -10, 850, 260);
 
@@ -124,7 +160,7 @@ public class tela extends javax.swing.JFrame {
                         File new_diretorio = new File(diretorio + "prestringtable/");
                         new_diretorio.mkdir();
                         diretorio = diretorio + "prestringtable/";
-                               
+
                         File new_diretorio2 = new File(diretorio + "ru/");
                         new_diretorio2.mkdir();
                         diretorio = diretorio + "ru/";
@@ -271,6 +307,21 @@ public class tela extends javax.swing.JFrame {
         versao = (String) combobox_language.getSelectedItem();
     }//GEN-LAST:event_combobox_languageActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Desktop desktop = null;
+        desktop = Desktop.getDesktop();
+        URI uri = null;
+        try {
+            uri = new URI("http://sistemaweb.alumasa.com.br/scriptcase/app/BlackDesert/app_Login/");
+            desktop.browse(uri);
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        } catch (URISyntaxException use) {
+            use.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -311,9 +362,13 @@ public class tela extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> combobox_language;
     private javax.swing.JTextField download_progress;
     private javax.swing.JButton install_button;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }

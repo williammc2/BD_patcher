@@ -47,7 +47,7 @@ public class BD_Patcher {
         }
         in.close();
 
-        if (!"1".equals(inputLine)) {
+        if (!"2".equals(inputLine)) {
             JOptionPane.showMessageDialog(null, "Atualizando Patcher, favor clique em OK para iniciar o Download.");
 
             caminho = BD_Patcher.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
