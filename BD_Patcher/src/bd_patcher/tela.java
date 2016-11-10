@@ -16,6 +16,8 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -32,11 +34,13 @@ public class tela extends javax.swing.JFrame {
     String disco = null;
     String versao = null;
 
-    public tela() {
+    public tela() throws IOException {
         initComponents();
         List minhalista_eng_us = lista_us.geteng_us();
         List minhalista_pt_bt = lista_pt.getpt_br();
-    }
+        version check_version = new version();
+        verison_txt.setText("Version:"+ check_version.getversion()+".0");
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,7 +61,7 @@ public class tela extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        verison_txt = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -132,10 +136,10 @@ public class tela extends javax.swing.JFrame {
         getContentPane().add(jLabel6);
         jLabel6.setBounds(720, 80, 120, 20);
 
-        jLabel7.setForeground(new java.awt.Color(255, 0, 51));
-        jLabel7.setText("Version :2.0");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(760, 220, 70, 14);
+        verison_txt.setForeground(new java.awt.Color(255, 0, 51));
+        verison_txt.setText("Version :2.0");
+        getContentPane().add(verison_txt);
+        verison_txt.setBounds(760, 220, 70, 14);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bd_patcher/Img/bd_wp.jpg"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(855, 243));
@@ -352,7 +356,11 @@ public class tela extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new tela().setVisible(true);
+                try {
+                    new tela().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(tela.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -369,6 +377,6 @@ public class tela extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel verison_txt;
     // End of variables declaration//GEN-END:variables
 }
